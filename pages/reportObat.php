@@ -13,17 +13,17 @@
                     <p>40</p>
                 </div>
                 <div class="boxcontent">
-                    <h3 > <i class="fa fa-capsules" style="margin-inline-end: 10px"></i> Obat Bebas</h3>
+                    <h3 > <i class="fa fa-diagnoses" style="margin-inline-end: 10px"></i> Obat Bebas</h3>
                     <p>22</p>
                 </div>
             </div>
             <div class="sumcontent">
                 <div class="boxcontent">
-                    <h3> <i class="fa fa-capsules" style="margin-inline-end: 10px"></i> Obat Bebas Terbatas</h3>
+                    <h3> <i class="fa fa-prescription-bottle-alt" style="margin-inline-end: 10px"></i> Obat Bebas Terbatas</h3>
                     <p>13</p>
                 </div>
                 <div class="boxcontent">
-                    <h3> <i class="fa fa-capsules" style="margin-inline-end: 10px"></i>Jamu/Herbal</h3>
+                    <h3> <i class="fa fa-tablets" style="margin-inline-end: 10px"></i>Jamu/Herbal</h3>
                     <p>30</p>
                 </div>
             </div>

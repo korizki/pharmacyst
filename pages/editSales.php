@@ -59,7 +59,70 @@
             </div>
         </form>
     </div>
-    <div class="tabledata" style="margin-top: 10px">
+    <div class='forminput' id="updatesales">
+        <?php 
+            if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $query = mysqli_query($connection, "SELECT * FROM t_penjualan WHERE id_trx_jual = '$id'");
+            $row = mysqli_fetch_array($query);
+            echo "<script>
+                document.getElementById('updatesales').style.display = 'auto';
+                </script>";
+            } else {
+                echo "<script>
+                document.getElementById('updatesales').style.display = 'none';
+                </script>";
+            }
+            // $date = date('d/m/Y', strtotime($row['expired_date']));
+        ?>
+        <form action="../code/handleUpdate.php" method="post">
+            <div class="col1">
+                <div>
+                    <label for="idobat">ID Obat</label>
+                    <input type="text" id="idobat"  name="idobat" readonly value="<?php echo (empty($id)) ? "" : $id?>">
+                </div>
+                <div>
+                    <label for="namaobatjualok">Nama Obat</label>
+                    <input type="text" id="namaobatjualok"  name="namaobatjualok" readonly value="<?php echo (empty($row['nama_obat_jual'])) ? "" : $row['nama_obat_jual']?>">
+                </div>
+                <div>
+                    <label for="hrgjual">Harga Jual</label>
+                    <input type="number" id="hrgjual"  readonly name="hrgjual" value="<?php echo $row['harga_obat_jual'] ?>">
+                </div>
+                <div>
+                    <label for="hrgmodal">Harga Modal</label>
+                    <input type="number" id="hrgmodal" readonly name="hrgmodal" value="<?php echo $row['harga_modal'] ?>">
+                </div>
+            </div>
+            <div class="col1" style="margin-top: -2px">
+                <div>
+                    <label for="tgljual">Tanggal Penjualan</label>
+                    <input type="date" id="tgljual" required name="tgljual" value="<?php echo $row['tanggal_trx_jual'] ?>">
+                </div>
+                <div>
+                    <label for="idkw">No Kwitansi Penjualan</label>
+                    <input type="text" id="idkw" name="idkw" value="<?php echo $row['no_bukti_jual'] ?>">
+                </div>
+                <div>
+                    <label for="jmlhjual">Jumlah | Stok </label>
+                    <input type="number" id="jmlhjual" required name="jmlhjual" value="<?php echo $row['jumlah_obat_jual'] ?>">
+                </div>
+                <button type="submit" name="updatesales"><i class="fa fa-paper-plane"  style="margin-inline-end: 8px"></i>Update Data Penjualan</button>
+            </div>
+        </form>
+    </div>
+    <div class="tabledata" id="listsales">
+        <?php 
+            if(empty($_GET['id'])){
+                echo "<script>
+                    document.getElementById('listsales').style.display = 'auto';
+                </script>";
+                } else {
+                    echo "<script>
+                    document.getElementById('listsales').style.display = 'none';
+                    </script>";
+            }
+        ?>
         <h1>List Data Penjualan</h1>
         <div style=" overflow: auto; height: 100%">
             <table >
@@ -122,7 +185,7 @@
                                 <td><?php echo number_format($row['harga_modal']) ?></td>
                                 <td><?php echo number_format($row['harga_total_jual']) ?></td>
                                 <td><?php echo number_format($row['laba_jual']) ?></td>
-                                <td style="color: grey"><a title="Edit Data" href="#" ><i class="fa fa-edit" style="margin-inline-end: 10px"></i></a>  |  <a title="Hapus Data" href="../code/handleDelete.php?id=<?php echo $row['id_trx_jual']?>&act=deletesales" onclick="return confirm('Anda yakin ingin menghapus data?')"><i class="fa fa-trash-alt" style="margin-inline-start: 10px"></i></a></td>
+                                <td style="color: grey"><a title="Edit Data" href="?content=editsales&id=<?php echo $row['id_trx_jual'] ?>" ><i class="fa fa-edit" style="margin-inline-end: 10px"></i></a>  |  <a title="Hapus Data" href="../code/handleDelete.php?id=<?php echo $row['id_trx_jual']?>&act=deletesales" onclick="return confirm('Anda yakin ingin menghapus data?')"><i class="fa fa-trash-alt" style="margin-inline-start: 10px"></i></a></td>
                             </tr>
                             
                         <?php

@@ -51,7 +51,7 @@
             </div>
         </form>
         <form action="../code/handleSubmit.php" method="post">
-            <div class="col1" style="margin-top: -10px">
+            <div class="col1" style="margin-top: 1px">
                 <div>
                     <label for="namaobatjualok">Nama Obat</label>
                     <input type="text" id="namaobatjualok"  name="namaobatjualok" readonly value="<?php echo (empty($namaobat1)) ? "" : $namaobat1?>">

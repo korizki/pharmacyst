@@ -446,8 +446,9 @@ footer{
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px 0 rgba(128, 128, 128, 0.400);
+    box-shadow: 0 5px 10px 0 rgba(128, 128, 128, 0.600);
     border-left: 10px solid rgb(56, 84, 107);
+    
 }
 .boxcontent>p{
     margin-top: 5px;
@@ -463,7 +464,4 @@ footer{
 .chartbox{
     width: 450px;
     height: auto;
-}
-#updateobat{
-    /* display: none; */
 }

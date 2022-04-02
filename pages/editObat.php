@@ -85,7 +85,7 @@
             <div class="col1">
                 <div>
                     <label for="idobat">ID Obat</label>
-                    <input type="text" id="idobat" required name="idobat" value="<?php echo $row['id_obat']; ?>">
+                    <input type="text" id="idobat" required name="idobat" readonly value="<?php echo $row['id_obat']; ?>">
                 </div>
                 <div>
                     <label for="namaobat">Nama Obat</label>
@@ -130,7 +130,7 @@
                     <label for="expirydate">Expired Date</label>
                     <input type="date" id="expirydate" required name="expirydate" value="<?php echo $row['expired_date'] ?>">
                 </div>
-                <button type="submit" name="updateobat"><i class="fa fa-paper-plane"  style="margin-inline-end: 8px"></i>Submit Data</button>
+                <button type="submit" name="updateobat"><i class="fa fa-paper-plane"  style="margin-inline-end: 8px"></i>Update Data Obat</button>
             </div>
         </form>
     </div>
