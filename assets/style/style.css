@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;600&display=swap');
+/* @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"); */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+    text-decoration: none;
+    font-weight: 300;
+}
+body{
+    background-image: url('../illusbg/bg.svg');
+    /* Background by svgbackgrounds.com */
+    background-size: cover;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 500;
+}
+a{
+    color: inherit;
+}
+ul li{
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+}
+:root{
+    --blue1: rgb(19, 58, 90);
+    --blue2: #7393ff;
+    --merah: rgb(255, 110, 110);
+    --buram: rgba(59, 59, 59, 0.575);
+    --gelap: rgba(92, 92, 92);
+    --line: rgba(0, 0, 0, 0.199);
+}
+.navbar{
+    display: flex;
+    padding: 25px 50px;
+    justify-content: space-between;
+}
+
+.jumbotron{
+    display: flex;
+    flex-direction: row;
+    padding: 30px 70px;
+}
+.jumbotron>figure{
+    width: 50%;
+}
+.tagline{
+    width: 50%;
+}
+.tagline h1{
+    margin: 100px 0 40px 0;
+    font-size: 3.5rem;
+    color: rgb(238, 53, 53);
+}
+.tagline p{
+    line-height: 1.7;
+    font-size: 1.3rem;
+    color: rgba(59, 59, 59, 0.575);
+}
+.tagline >a{
+    display: inline-block;
+    color: var(--merah);
+    padding: 20px 50px;
+    border: 2px solid var(--merah);
+    background-color: white;
+    margin-block-start: 20px;
+    border-radius: 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out
+}
+.tagline >a:hover{
+    background: var(--merah);
+    color: white;
+    box-shadow: 0 0 10px 0 var(--merah);
+}
+.loginbox{
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.404);
+    width: 100%;
+    height: 100%;
+    opacity:0;
+    display: none;
+    align-items: center;
+    transition: all 0.7s ease-in;
+}
+.formlogin{
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    height: 450px;
+    width: 50%;
+    margin-inline-start: 25%;
+    color: var(--blue1);
+    transition: all 0.7s ease;
+    transform: translateY(-800px);
+}
+.loginitem{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0 30px;
+}
+.loginitem>img{
+    height: 330px;
+}
+.logintext{
+    flex: 1;
+}
+.logintext>form>div{
+    display: flex;
+    flex-direction: column;
+    margin-block-end: 20px;
+    font-size: 1rem;
+}
+.logintext>form>div>label{
+    margin-bottom: 8px;
+}
+.logintext>form>div>input{
+    padding: 12px 15px;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.233);
+    border-radius: 5px;
+}
+.logintext>form>button{
+    background: var(--blue1);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    width: 100%;
+    border: 1px solid var(--blue1);
+    cursor: pointer;
+}
+.logintext>form>button:hover, button:focus{
+    box-shadow: 0 0 10px 0 var(--blue1);
+    border: 1px solid var(--blue1);
+    outline: none;
+}
+.bgwhite{
+    background: rgb(255, 255, 255) !important;
+    padding: 18px 50px;
+    border-bottom: 1px solid var(--line);
+}
+.logoutbtn{
+    transition: all 0.3s ease;
+    padding: 6px;
+    border-radius: 50%;
+}
+.logoutbtn:hover{
+    color: white;
+    background:rgb(252, 26, 26);
+    border-radius: 50%;
+}
+.item-menu-box{
+    position: fixed;
+    color: rgba(122, 122, 122, 0.51);
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 230px;
+    border-right: 1px solid var(--line);
+    padding: 20px 0;
+    height: 100%;
+    overflow: hidden auto;
+    padding-bottom: 120px;
+}
+.item-menu-box>li{
+    margin: 0;
+    transition: all 0.4s ease-in-out;
+}
+.item-menu-box>li>a{
+    display: block;
+    padding: 17px 20px !important;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.400);
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+.item-menu-box>li>details>summary{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.400);
+}
+.item-menu-box>li>details>summary{
+    display: block;
+    padding: 17px 20px !important;
+}
+.item-menu-box>li>a:hover, li>details>summary:hover{
+    color: rgba(73, 114, 202, 0.91);
+    border-left: 6px solid rgb(38, 77, 128);
+}
+.submenu{
+    display: flex;
+    flex-direction: column;
+}
+.caption{
+    font-weight: 500;
+}
+.submenu>li{
+    margin-left: 0;
+}
+.submenu>li>a{
+    display: block;
+    padding: 17px 20px;
+    padding-left: 35px;
+    color: inherit;
+}
+.submenu>li:hover{
+    background: var(--blue2);
+    color: white;
+}
+.content{
+    padding: 20px 30px 20px 260px;
+    color: black;
+}
+footer{
+    padding: 25px;
+    text-align: center;
+    background: rgb(238, 53, 53);
+    color: white;
+    font-size: 0.9rem;
+}
+.box{
+    background: white;
+    box-shadow: 0 5px 10px 0 rgba(168, 168, 168, 0.26);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgba(73, 114, 202, 0.91);
+    display: flex;
+    align-items: center;
+    border-left: 10px solid var(--blue2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.box:hover{
+    position: relative;
+    transform: translateY(-10px);
+}
+.box>div{
+    color: rgba(92, 92, 92, 0.6);
+    padding: 0 10px
+}
+.box>div{
+    flex:1;
+}
+.box>div>h1{
+    padding-bottom: 7px;
+    margin-bottom: 8px;
+    color: rgba(73, 114, 202, 0.91);
+    border-bottom: 1px solid var(--line);
+}
+.box>i{
+    font-size: 40px;
+    margin-right: 15px;
+}
+.box>div>div>h2{
+    font-size: 1.8rem;
+    opacity: 1 !important;
+    color: var(--gelap);
+    margin-bottom: 3px;
+}
+.box>div>div>p{
+    font-style: italic;
+}
+.controw1{
+    display: flex;
+    gap: 30px;
+}
+.controw1>.box{
+    flex: 1;
+}
+.contentSummary>h1{
+    margin-bottom: 25px;
+    color: var(--gelap)
+}
+.box2{
+    gap: 10px;
+    border-left: none;
+    padding-top: 20px;
+}
+.box2 >h2{
+    font-size: 1.5rem;
+    padding: 10px 13px;
+    background: rgba(73, 114, 202, 0.91);
+    color: white;
+    border-radius: 150px;
+}
+.box2:hover{
+    position: relative;
+    transform: translateY(0px);
+}
+.buttoncek{
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: white;
+    color: rgba(73, 114, 202, 0.91);
+    cursor: pointer;
+    border: 2px solid rgba(73, 114, 202, 0.91);
+    width: 100%;
+    margin: 20px 0 10px 0;
+    transition: all 0.3s ease;
+}
+.buttoncek:hover,.buttoncek:focus{
+    border: 2px solid rgba(73, 114, 202, 0.91);
+    background: rgba(73, 114, 202, 0.91);
+    color: white;
+}
+.footsum{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    padding: 16px;
+    font-size: 0.8rem;
+    background: var(--blue1);
+    /* display: none; */
+}
+.inputDataBox{
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    box-shadow: 5px 5px 10px 0 rgba(88, 88, 88, 0.16);
+    height: 650px;
+    overflow: auto;
+}
+.inputDataBox>h1{
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+}
+.col1{
+    padding: 20px;
+}
+.col1>div{
+    display: flex;
+    flex-direction: column;
+}
+.col1>div>input,div>select, .col1>div>div>input, .col1>div>div>button{
+    padding: 10px 15px;
+    border: 1px solid rgba(128, 128, 128, 0.219);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+/* .col1>div>input:hover,div>select:hover{
+    border: 1px solid rgb(58, 57, 143);
+} */
+.col1>div>input:focus,div>select:focus{
+    border: 1px solid rgb(58, 57, 143);
+    outline: none;
+}
+.col1>div>label{
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+.forminput>form{
+    display: flex;
+}
+.forminput>form>div{
+    flex: 1;
+}
+.forminput>form>div>button{
+    padding: 12px 40px;
+    border: 2px solid rgba(73, 114, 202, 0.91);
+    background: white;
+    color: rgba(73, 114, 202, 0.91);
+    border-radius: 50px;
+    cursor: pointer;
+    float:right;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+.forminput>form>div>button:hover{
+    background: rgba(73, 114, 202, 0.91);
+    color: white;
+}
+.inputDataBox>.headerok{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+}
+.inputDataBox>.headerok>p{
+    padding: 8px 20px;
+    border-radius: 7px;
+}
+.inputDataBox>.headerok>.success{
+    border: 1px solid rgb(46, 187, 46);
+    color: rgb(46, 187, 46);
+}
+.inputDataBox>.headerok>.failed{
+    border: 1px solid rgb(187, 46, 46);
+    color: rgb(182,46,46);
+}
+.tabledata >h1{
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+}
+.tabledata >div> table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid var(--line);
+}
+.tabledata>div>table>thead>tr{
+    background: var(--blue1);
+    color: white;
+    border: 1px solid var(--line);    
+    position: sticky;
+    top: 0px;
+}
+.tabledata>div>table>thead>tr>th{
+    font-weight: 500;
+    padding: 10px 0;
+    
+}
+.tabledata>div>table>tbody>tr>td{
+    padding: 12px 0;
+}
+.tabledata>div>table>tbody>tr:nth-child(odd){
+    background: rgba(192, 192, 192, 0.219);
+}
+.col1>div>div>button{
+    cursor: pointer;
+}
