@@ -16,7 +16,7 @@
     } else if(isset($_GET['cariobatnama'])){
         $obat = $_GET['namaobat'];
         header("Location: ../pages/summaryMed.php?content=editmedicine&cari=nama&nama=$obat");
-    } else if(isset($_GET['cariobatkategori'])){
+    } else if(isset($_GET['cariobatjenis'])){
         $kategori = $_GET['jenis'];
         header("Location: ../pages/summaryMed.php?content=editmedicine&cari=kategori&kategori=$kategori");
     } 

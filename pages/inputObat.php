@@ -30,22 +30,22 @@
                 <div>
                     <label for="satuan">Satuan</label>
                     <select name="satuan" id="satuan" required>
-                        <option value="ampul">Ampul</option>
-                        <option value="botol">Botol</option>
-                        <option value="box">Box</option>
-                        <option value="capsul">Capsul</option>
-                        <option value="pcs">Pcs</option>
-                        <option value="strip">Strip</option>
-                        <option value="tubes">Tubes</option>
+                        <option value="Ampul">Ampul</option>
+                        <option value="Botol">Botol</option>
+                        <option value="Box">Box</option>
+                        <option value="Capsul">Capsul</option>
+                        <option value="Pcs">Pcs</option>
+                        <option value="Strip">Strip</option>
+                        <option value="Tubes">Tubes</option>
                     </select>
                 </div>
                 <div>
                     <label for="jenis">Jenis</label>
                     <select name="jenis" id="jenis" required>
-                        <option value="obat keras">Obat Keras</option>
-                        <option value="obat bebas">Obat Bebas</option>
-                        <option value="obat bebas terbatas">Obat Bebas Terbatas</option>
-                        <option value="jamu/herbal">Jamu/Herbal</option>
+                        <option value="Obat Keras">Obat Keras</option>
+                        <option value="Obat Bebas">Obat Bebas</option>
+                        <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>
+                        <option value="Jamu/Herbal">Jamu/Herbal</option>
                     </select>
                 </div>
             </div>

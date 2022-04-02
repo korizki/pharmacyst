@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js" integrity="sha512-uLlukEfSLB7gWRBvzpDnLGvzNUluF19IDEdUoyGAtaO0MVSBsQ+g3qhLRL3GTVoEzKpc24rVT6X1Pr5fmsShBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="../assets/script/script.js" ></script>
 </head>
 <body style="background: rgba(218, 218, 255, 0.26); font-size: 14px">
@@ -30,16 +31,6 @@
         <ul class="item-menu-box">
            <li><a href="?content=summary" ><i class="fa fa-home" style="margin-inline-end: 10px"></i><span class="caption">Beranda | Home</span></a></li> 
            <li>
-                <details id="detpenjualan">
-                    <summary><i class="fa fa-money-bill-alt" style="margin-inline-end: 10px"></i><span class="caption">Penjualan | Sales</span></summary>
-                    <ul class="submenu">
-                        <li><a href="?content=addsales"><i class="fa fa-plus" style="margin-inline-end: 10px"></i>Tambah | Add</a></li>
-                        <li><a href="?content=editsales"><i class="fa fa-edit" style="margin-inline-end: 10px"></i>Edit/Cari | Edit/Find</a></li>
-                        <li><a href="?content=repsales"><i class="fa fa-file-alt" style="margin-inline-end: 10px"></i>Laporan | Report</a></li>
-                    </ul>
-                </details>   
-            </li>
-           <li>
                <details id="detobat">
                    <summary><i class="fa fa-capsules" style="margin-inline-end: 10px"></i><span class="caption">Data Obat | Medicines</span></summary>
                    <ul class="submenu">
@@ -48,6 +39,16 @@
                         <li><a href="?content=repmedicine"><i class="fa fa-file-alt" style="margin-inline-end: 10px"></i>Laporan | Report</a></li>
                     </ul>
                </details>
+            </li>
+           <li>
+                <details id="detpenjualan">
+                    <summary><i class="fa fa-money-bill-alt" style="margin-inline-end: 10px"></i><span class="caption">Penjualan | Sales</span></summary>
+                    <ul class="submenu">
+                        <li><a href="?content=addsales"><i class="fa fa-plus" style="margin-inline-end: 10px"></i>Tambah | Add</a></li>
+                        <li><a href="?content=editsales"><i class="fa fa-edit" style="margin-inline-end: 10px"></i>Edit/Cari | Edit/Find</a></li>
+                        <li><a href="?content=repsales"><i class="fa fa-file-alt" style="margin-inline-end: 10px"></i>Laporan | Report</a></li>
+                    </ul>
+                </details>   
             </li>
            <li>
                <details id="detpurchase">

@@ -13,6 +13,7 @@
     $labatodayx = mysqli_fetch_array($labatoday);
     $cekstokobat = mysqli_query($connection, "SELECT * FROM t_stok WHERE jumlah_obat_stok <= 3");
     $cekstokobatok = mysqli_num_rows($cekstokobat);
+    $cekexpiry = mysqli_query($connection, "SELECT COUNT(expired_date) AS EXPIRY FROM t_obat WHERE expired_date - CURRENT_DATE < 1 ")
 ?>
 <div class="contentSummary">
     <h1>Informasi untukmu hari ini!</h1>
@@ -70,7 +71,7 @@
                 </div>
                 <button class="buttoncek">Cek Sekarang!</button>
             </div>
-            <h2 class='itemrow2'>20</h2>
+            <h2 class='itemrow2'><?php echo mysqli_fetch_array($cekexpiry)['EXPIRY']?></h2>
         </div>
         <div class="box box2">
             <div>
