@@ -27,7 +27,7 @@
             }
         ?>
     </div>
-    <div class='forminput' >
+    <div class='forminput' id="formcari">
         <form action="../code/handleSearch.php" method="get">
             <div class="col1" style="padding-bottom: 0">
                 <div>
@@ -116,10 +116,12 @@
             if(empty($_GET['id'])){
                 echo "<script>
                     document.getElementById('listsales').style.display = 'auto';
+                    document.getElementById('formcari').style.display = 'auto';
                 </script>";
                 } else {
                     echo "<script>
                     document.getElementById('listsales').style.display = 'none';
+                    document.getElementById('formcari').style.display = 'none';
                     </script>";
             }
         ?>

@@ -43,5 +43,23 @@
             header('Location: ../pages/summaryMed.php?content=editsales&status=editsalesfailed');
         }
     }
+    // handle update data purchase
+    if(isset($_POST['updatepurchase'])){
+        $idkw = $_POST['idkw'];
+        $tglbeli = $_POST['tglbeli'];
+        $namaobatbeli = $_POST['namaobatbeliok'];
+        $jmlhbeli = $_POST['jmlhbeli'];
+        $hrgbeli = $_POST['hrgbeli'];
+        // total pembelian
+        $hrgtotalbeli = (int)$hrgbeli * (int)$jmlhbeli;
+        // query update pembelian
+        $updatebeli = mysqli_query($connection, "UPDATE t_pembelian SET no_bukti_beli='$idkw', tanggal_trx_beli='$tglbeli', nama_obat_beli='$namaobatbeli', jumlah_obat_beli='$jmlhbeli', harga_obat_beli='$hrgbeli',total_pembelian='$hrgtotalbeli'");
+        // jikaberhasil
+        if($updatebeli){
+            header('Location: ../pages/summaryMed.php?content=editpurchase&status=editpurchasesuccess');
+        } else {
+            header('Location: ../pages/summaryMed.php?content=editpurchase&status=editpurchasefailed');
+        }
+    }
 
 ?>

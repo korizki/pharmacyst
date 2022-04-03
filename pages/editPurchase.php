@@ -26,7 +26,7 @@
             }
         ?>
     </div>
-    <div class='forminput' >
+    <div class='forminput'id="formcari">
         <form action="../code/handleSearch.php" method="get">
             <div class="col1" style="padding-bottom: 0">
                 <div>
@@ -58,7 +58,71 @@
             </div>
         </form>
     </div>
-    <div class="tabledata" style="margin-top: 10px">
+    <div class='forminput' id='updatepurchase'>
+        <?php 
+            if(isset($_GET['id'])){
+                $id=$_GET['id'];
+                $query = mysqli_query($connection, "SELECT * FROM t_pembelian WHERE id_trx_beli = '$id'");
+                $row = mysqli_fetch_array($query);
+                echo "
+                <script>document.getElementById('updatepurchase').style.display = 'auto'; </script>
+                " ;
+            } else {
+                echo "
+                <script>document.getElementById('updatepurchase').style.display = 'none'</script>
+                ";
+            }
+        ?>
+        <form action="../code/handleUpdate.php" method="post">
+            <div class="col1">
+                <div>
+                    <label for="idobat">ID Obat</label>
+                    <input type="text" id='idobat' name='idobat' readonly value="<?php echo (empty($id)) ? "" : $id ?>">
+                </div>
+                <div>
+                    <label for="namaobatbeliok">Nama Obat</label>
+                    <input type="text" id="namaobatbeliok"  name="namaobatbeliok" readonly value="<?php echo (empty($row['nama_obat_beli'])) ? "" : $row['nama_obat_beli']?>">
+                </div>
+                <div>
+                    <label for="jmlhbeli">Jumlah Pembelian</label>
+                    <input type="number" id="jmlhbeli"  name="jmlhbeli" value="<?php echo (empty($row['jumlah_obat_beli'])) ? "" : $row['jumlah_obat_beli']?>">
+                </div>
+                <div>
+                    <label for="hrgbeli">Harga Beli</label>
+                    <input type="number" id="hrgbeli"  name="hrgbeli" value="<?php echo (empty($row['harga_obat_beli'])) ? "" : $row['harga_obat_beli']?>">
+                </div>
+            </div>
+            <div class="col1">
+                <div>
+                    <label for="tglbeli">Tanggal Pembelian</label>
+                    <input type="date" id='tgbeli' name='tglbeli' value="<?php echo (empty($row['tanggal_trx_beli'])) ? "" : $row['tanggal_trx_beli']?>">
+                </div>
+                <div>
+                    <label for="idkw">No Kwitansi Pembelian</label>
+                    <input type="text" id="idkw"  name="idkw" value="<?php echo (empty($row['no_bukti_beli'])) ? "" : $row['no_bukti_beli']?>">
+                </div>
+                <div>
+                    <label for="totalbeli">Total Pembelian</label>
+                    <input type="number" id="totalbeli"  name="totalbeli" readonly value="<?php echo (empty($row['total_pembelian'])) ? "" : $row['total_pembelian']?>">
+                </div>
+                <button type="submit" name="updatepurchase" ><i class="fa fa-paper-plane"  style="margin-inline-end: 8px;"></i>Update Data Pembelian</button>
+            </div>
+        </form>
+    </div>
+    <div class="tabledata" id="listpurchase">
+        <?php 
+            if(empty($_GET['id'])){
+                echo "<script>
+                    document.getElementById('listpurchase').style.display = 'auto';
+                    document.getElementById('formcari').style.display = 'auto';
+                </script>";
+                } else {
+                    echo "<script>
+                    document.getElementById('listpurchase').style.display = 'none';
+                    document.getElementById('formcari').style.display = 'none';
+                    </script>";
+            }
+        ?>
         <h1>List Data Pembelian</h1>
         <div style=" overflow: auto; height: 100%">
             <table >
@@ -117,7 +181,7 @@
                                 <td><?php echo $row['jumlah_obat_beli'] ?></td>
                                 <td><?php echo number_format($row['harga_obat_beli']) ?></td>
                                 <td><?php echo number_format($row['total_pembelian']) ?></td>
-                                <td style="color: grey"><a title="Edit Data" href="#" ><i class="fa fa-edit" style="margin-inline-end: 10px"></i></a>  |  <a title="Hapus Data" href="../code/handleDelete.php?id=<?php echo $row['id_trx_beli']?>&act=deletepurchase" onclick="return confirm('Anda yakin ingin menghapus data?')"><i class="fa fa-trash-alt" style="margin-inline-start: 10px"></i></a></td>
+                                <td style="color: grey"><a title="Edit Data" href="?content=editpurchase&id=<?php echo $row['id_trx_beli']?>" ><i class="fa fa-edit" style="margin-inline-end: 10px"></i></a>  |  <a title="Hapus Data" href="../code/handleDelete.php?id=<?php echo $row['id_trx_beli']?>&act=deletepurchase" onclick="return confirm('Anda yakin ingin menghapus data?')"><i class="fa fa-trash-alt" style="margin-inline-start: 10px"></i></a></td>
                             </tr>
                             
                         <?php
@@ -130,7 +194,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     document.getElementById("tgljual").focus()
 const namaobat = document.getElementById('namaobatjual');
 namaobat.addEventListener('keyup',function(e){
@@ -140,4 +204,18 @@ namaobat.addEventListener('keyup',function(e){
         
     }
 })
+</script> -->
+<script>
+    const hrgbeli = document.getElementById('hrgbeli');
+    hrgbeli.addEventListener('input', function(e){
+        const jmlhbeli = document.getElementById('jmlhbeli');
+        const totalbeli = document.getElementById('totalbeli');
+        totalbeli.value = parseInt(jmlhbeli.value) * parseInt(e.target.value);
+    })
+    const jmlhbeli = document.getElementById('jmlhbeli');
+    jmlhbeli.addEventListener('input', function(e){
+        const hrgbeli = document.getElementById('hrgbeli');
+        const totalbeli = document.getElementById('totalbeli');
+        totalbeli.value = parseInt(hrgbeli.value) * parseInt(e.target.value);
+    })
 </script>

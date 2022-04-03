@@ -128,5 +128,4 @@
         const totalbeli = document.getElementById('totalbeli');
         totalbeli.value = parseInt(jmlhbeli.value) * parseInt(e.target.value);
     })
-    totalbeli
 </script>
