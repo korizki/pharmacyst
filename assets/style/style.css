@@ -465,3 +465,87 @@ footer{
     width: 450px;
     height: auto;
 }
+.datebox{
+    padding: 16px;
+    border: 1px solid rgb(212, 212, 212);
+    box-shadow: 5px 5px 10px 0 rgba(128, 128, 128, 0.120);
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    border-radius: 8px;
+}
+.datebox>div>input, button{
+    padding: 9px 15px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    margin: 0 7px;
+}
+.datebox>button{
+    background:rgb(19, 58, 90);
+    color: white;
+    border: 1px solid rgb(19, 58, 90);
+}
+.datebox>button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(19, 58, 90, 0.596);
+}
+.section{
+    padding: 15px;
+    display: flex;
+    gap: 40px;
+}
+.section>div>div{
+    background: rgba(73, 114, 202, 0.91);
+    padding: 15px 30px;
+    color: white;
+    flex: 1;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(128, 128, 128, 0.604);
+    cursor: pointer;
+    border: 2px solid rgb(76, 108, 156);
+    transition: transform 0.3s ease;
+}
+.section>div>div:hover{
+    transform: translateY(-5px);
+}
+.section>div>div>p{
+    font-size: 1rem;
+    border-bottom: 1px solid white;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+}
+.boxreport{
+    margin-top: 20px;
+}
+.tablebox>table{
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+.boxreport>h1{
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+}
+.tablebox>table>thead>tr{
+    border: 1px solid rgb(19, 58, 90);
+}
+.tablebox>table>thead>tr>th{
+    background:rgb(19, 58, 90);
+    color: white;
+    font-weight: 500;
+    padding: 12px 0;
+}
+.tablebox>table>tbody>tr{
+    text-align: center;
+    border: 1px solid var(--line);
+}
+.tablebox>table>tbody>tr>td{
+    padding: 12px 0;
+}
+.tablebox>table>tbody>tr:nth-child(even){
+    background: rgb(243, 243, 243);
+}
