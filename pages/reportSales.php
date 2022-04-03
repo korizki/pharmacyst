@@ -7,17 +7,21 @@
     if(isset($_GET['genreport'])){
         $startdate = $_GET['startdate'];
         $enddate = $_GET['enddate'];
-        // query tanggal grafik poin label
-        $querytanggal = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
-        // query tanggal grafik poin total penjualan
-        $querytanggal2 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
-        // query tanggal tabel total penjualan
-        $querytanggal3 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
-        $querytanggal4 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
-        $querytotaljual = mysqli_query($connection, "SELECT SUM(harga_total_jual) AS TOTALJUAL FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
-        $querytotallaba = mysqli_query($connection, "SELECT SUM(laba_jual) AS TOTALLABA FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
-        $queryjmlhobat = mysqli_query($connection, "SELECT SUM(jumlah_obat_jual) AS TOTALOBAT FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
-    }   
+    } else {
+        $startdate = date('Y-m-d');
+        $enddate = date('Y-m-d');
+    }
+    // query tanggal grafik poin label
+    $querytanggal = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
+    // query tanggal grafik poin total penjualan
+    $querytanggal2 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
+    // query tanggal tabel total penjualan
+    $querytanggal3 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
+    $querytanggal4 = mysqli_query($connection, "SELECT DISTINCT tanggal_trx_jual AS TANGGAL from t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate' ");
+    $querytotaljual = mysqli_query($connection, "SELECT SUM(harga_total_jual) AS TOTALJUAL FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
+    $querytotallaba = mysqli_query($connection, "SELECT SUM(laba_jual) AS TOTALLABA FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
+    $queryjmlhobat = mysqli_query($connection, "SELECT SUM(jumlah_obat_jual) AS TOTALOBAT FROM t_penjualan WHERE tanggal_trx_jual BETWEEN '$startdate' AND '$enddate'");
+    
     // function mengembalikan total penjualan di tanggal tertentu
     function getSales($date){
         include "../code/connection.php";
@@ -36,11 +40,11 @@
             <input type="text" name="content" value="repsales" style="display: none" readonly>
             <div>
                 <label for="startdate">Tanggal Awal</label>
-                <input type="date" name="startdate" value="<?php echo (isset($_GET['startdate'])) ? $_GET['startdate'] : "" ?>">
+                <input type="date" name="startdate" value="<?php echo $startdate ?>">
             </div>
             <div>
                 <label for="enddate">Tanggal Akhir</label>
-                <input type="date" name="enddate" value="<?php echo (isset($_GET['enddate'])) ? $_GET['enddate'] : "" ?>">
+                <input type="date" name="enddate" value="<?php echo $enddate ?>">
             </div>
             <button stype="submit" name="genreport"><i class="fa fa-paper-plane" style="margin-inline-end: 8px"></i>Tampilkan Laporan Penjualan</button>
         </div>
@@ -50,16 +54,16 @@
             <div>
                 <div>
                     <p>Total Keuntungan</p>
-                    <h2>Rp <?php echo (isset($_GET['startdate'])) ? number_format(mysqli_fetch_array($querytotallaba)['TOTALLABA']) : '' ;?>,-</h2>
+                    <h2>Rp <?php echo (isset($startdate)) ? number_format(mysqli_fetch_array($querytotallaba)['TOTALLABA']) : '' ;?>,-</h2>
                 </div>
                 <div>
                     <p>Total Penjualan</p>
-                    <h2>Rp <?php echo (isset($_GET['startdate'])) ? number_format(mysqli_fetch_array($querytotaljual)['TOTALJUAL']) : '' ?>,-</h2>
+                    <h2>Rp <?php echo (isset($startdate)) ? number_format(mysqli_fetch_array($querytotaljual)['TOTALJUAL']) : '' ?>,-</h2>
                 </div>
                 
                 <div>
                     <p>Total Obat Terjual</p>
-                    <h2><?php echo (isset($_GET['startdate'])) ? number_format(mysqli_fetch_array($queryjmlhobat)['TOTALOBAT']) : '' ?> Pcs</h2>
+                    <h2><?php echo (isset($startdate)) ? number_format(mysqli_fetch_array($queryjmlhobat)['TOTALOBAT']) : '' ?> Pcs</h2>
                 </div>
             </div>
             
